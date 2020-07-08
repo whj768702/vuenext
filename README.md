@@ -1,5 +1,7 @@
 # vuenext
 
+vue3官方文档中api的demo实现。
+
 ## Project setup
 ```
 npm install
