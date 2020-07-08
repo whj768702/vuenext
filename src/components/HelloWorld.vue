@@ -1,28 +1,36 @@
 <template>
   <div class="hello">
     <div>
-      <span>{{counter}}</span>
+      <span>default value from parent: </span>
+      <input type="text" v-model="state.msg">
+      <button @click="passMsg2Parent">click me return value</button>
     </div>
-    <button @click="increaseCounter()">add</button>
   </div>
 </template>
 
 <script>
-  import {ref} from 'vue';
+  import {watchEffect, reactive} from 'vue';
 
   export default {
     name: 'HelloWorld',
     props: {
       msg: String
     },
-    setup() {
-      const counter = ref(3);
+    setup(props) {
+      const state = reactive({msg: props.msg});
 
-      function increaseCounter() {
-        counter.value++;
+      watchEffect(() => {
+        console.log('state.msg: ', state.msg);
+      });
+
+
+      return {state};
+    },
+    methods: {
+      passMsg2Parent() {
+        console.log('passMsg2Parent: ', this);
+        this.$emit('update', this.state.msg)
       }
-
-      return {counter, increaseCounter};
     }
   };
 </script>
