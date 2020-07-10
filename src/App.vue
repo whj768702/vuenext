@@ -53,4 +53,10 @@
     display: flex;
     flex-flow: row wrap;
   }
+  button {
+    margin: 2px;
+    padding: 6px;
+    border: 1px solid tomato;
+    outline: none;
+  }
 </style>

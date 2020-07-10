@@ -1,6 +1,7 @@
 <template>
   <div class="watch-effect">
     <span>{{counter}}</span>
+    <br/>
     <button @click="cancelInterval">cancel interval</button>
     <button @click="cancelWatchEffect">stop watchEffect</button>
   </div>
