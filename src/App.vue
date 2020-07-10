@@ -10,6 +10,7 @@
     </div>
     <ComputedComponent/>
     <WatchEffect/>
+    <ProvideInject/>
   </div>
 </template>
 
@@ -18,13 +19,15 @@
   import HelloWorld from './components/HelloWorld.vue';
   import ComputedComponent from './components/ComputedComponent';
   import WatchEffect from './components/WatchEffect';
+  import ProvideInject from './components/ProvideInject';
 
   export default {
     name: 'App',
     components: {
       HelloWorld,
       ComputedComponent,
-      WatchEffect
+      WatchEffect,
+      ProvideInject
     },
     setup() {
       const parentMsg = ref('parent');
