@@ -9,6 +9,7 @@
       <HelloWorld :msg="parentMsg" @update="handleSonChange"/>
     </div>
     <ComputedComponent/>
+    <WatchEffect/>
   </div>
 </template>
 
@@ -16,12 +17,14 @@
   import {ref} from 'vue';
   import HelloWorld from './components/HelloWorld.vue';
   import ComputedComponent from './components/ComputedComponent';
+  import WatchEffect from './components/WatchEffect';
 
   export default {
     name: 'App',
     components: {
       HelloWorld,
-      ComputedComponent
+      ComputedComponent,
+      WatchEffect
     },
     setup() {
       const parentMsg = ref('parent');
