@@ -36,6 +36,7 @@ export default {
       return result;
     },
     showMonth() {
+      console.log('month: ', this.month);
       return this.month + 1;
     },
   },
@@ -54,15 +55,15 @@ export default {
     },
     previousMonth() {
       const currentShowDate = new Date(this.year, this.month);
-      const calculatedDate = dayjs(currentShowDate);
+      const calculatedDate = dayjs(currentShowDate).subtract(1, 'month');
       this.year = calculatedDate.get('year');
-      this.month = calculatedDate.get('month') - 1;
+      this.month = calculatedDate.get('month');
     },
     nextMonth() {
       const currentShowDate = new Date(this.year, this.month);
-      const calculatedDate = dayjs(currentShowDate);
+      const calculatedDate = dayjs(currentShowDate).add(1, 'month');
       this.year = calculatedDate.get('year');
-      this.month = calculatedDate.get('month') + 1;
+      this.month = calculatedDate.get('month');
     },
   },
 };
