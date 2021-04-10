@@ -84,7 +84,7 @@ export default {
     justify-content: space-around;
 
     .cell {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
     }
   }
@@ -95,7 +95,7 @@ export default {
     flex-wrap: wrap;
 
     .cell {
-      margin-top: 40px;
+      margin-top: 50px;
       width: calc(100% / 7);
       font-size: 14px;
       font-weight: 500;
