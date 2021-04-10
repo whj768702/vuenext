@@ -1,65 +1,31 @@
 <template>
   <div id="app">
-    <div>
-      <h2>parent component: </h2>
-      <input type="text" v-model="parentMsg">
-      <span>father value: </span>
-      <p>{{parentMsg}}</p>
-      <h3>child component: </h3>
-      <HelloWorld :msg="parentMsg" @update="handleSonChange"/>
-    </div>
-    <ComputedComponent/>
-    <WatchEffect/>
-    <ProvideInject/>
+    <router-link to="/">home</router-link>
+    <router-link to="/calendar">calendar</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import {ref} from 'vue';
-  import HelloWorld from './components/HelloWorld.vue';
-  import ComputedComponent from './components/ComputedComponent';
-  import WatchEffect from './components/WatchEffect';
-  import ProvideInject from './components/ProvideInject';
-
-  export default {
-    name: 'App',
-    components: {
-      HelloWorld,
-      ComputedComponent,
-      WatchEffect,
-      ProvideInject
-    },
-    setup() {
-      const parentMsg = ref('parent');
-
-      return {
-        parentMsg
-      };
-    },
-    methods: {
-      handleSonChange(msg) {
-        console.log('parent: ', msg);
-        this.parentMsg = msg;
-      }
-    }
-  };
+export default {
+  name: 'App',
+};
 </script>
 
 <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-    display: flex;
-    flex-flow: row wrap;
-  }
-  button {
-    margin: 2px;
-    padding: 6px;
-    border: 1px solid tomato;
-    outline: none;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+button {
+  margin: 2px;
+  padding: 6px;
+  border: 1px solid tomato;
+  outline: none;
+}
 </style>
