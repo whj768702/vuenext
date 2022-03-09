@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import Home from './pages/Home';
-import Calendar from './components/calendar';
-import Month from './components/Month';
+import Calendar from './pages/calendar';
+import Month from './pages/Month';
 import { createWebHistory, createRouter } from 'vue-router';
 import './index.css';
 

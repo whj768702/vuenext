@@ -1,32 +1,36 @@
 <template>
-  <div id="app">
-    <router-link to="/">home</router-link>
-    <router-link to="/calendar">calendar</router-link>
-    <router-link to="/Month">month</router-link>
-    <router-view></router-view>
+  <div id="app" class="h-screen p-10 flex">
+    <div class="flex flex-col w-24 mr-2 border">
+      <div class="h-8 flex items-center justify-center" v-for="route in routes" :key="route.title">
+        <router-link :to="route.path">{{ route.title }}</router-link>
+      </div>
+    </div>
+    <div class="p-4 border flex-grow text-center">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      routes: [
+        {
+          path: '/',
+          title: 'Home',
+        },
+        {
+          path: '/calendar',
+          title: 'Calendar',
+        },
+        {
+          path: '/Month',
+          title: 'Month',
+        },
+      ],
+    };
+  },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-button {
-  margin: 2px;
-  padding: 6px;
-  border: 1px solid tomato;
-  outline: none;
-}
-</style>
