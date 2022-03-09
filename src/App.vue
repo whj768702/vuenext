@@ -26,8 +26,12 @@ export default {
           title: 'Calendar',
         },
         {
-          path: '/Month',
+          path: '/month',
           title: 'Month',
+        },
+        {
+          path: '/month-range',
+          title: 'MonthRange',
         },
       ],
     };
