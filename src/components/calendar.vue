@@ -18,12 +18,12 @@
 
 <script>
 import dayjs from 'dayjs';
-import isBetween  from 'dayjs/plugin/isBetween';
+import isBetween from 'dayjs/plugin/isBetween';
 
 dayjs.extend(isBetween);
 
 export default {
-  name: 'calendar',
+  name: 'Calendar',
   computed: {
     fortyDays() {
       const firstDayOfMonth = dayjs(new Date(this.year, this.month)).date(1);
@@ -104,6 +104,7 @@ export default {
     .month-include {
       color: #000000;
     }
+
     .month-exclude {
       color: #b0b0b0;
     }

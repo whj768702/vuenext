@@ -2,6 +2,7 @@
   <div id="app">
     <router-link to="/">home</router-link>
     <router-link to="/calendar">calendar</router-link>
+    <router-link to="/Month">month</router-link>
     <router-view></router-view>
   </div>
 </template>

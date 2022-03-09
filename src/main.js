@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import Home from './pages/Home';
 import Calendar from './components/calendar';
+import Month from './components/Month';
 import { createWebHistory, createRouter } from 'vue-router';
 import './index.css';
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/calendar',
     name: 'calendar',
     component: Calendar,
+  },
+  {
+    path: '/month',
+    name: 'month',
+    component: Month,
   },
 ];
 const router = createRouter({
