@@ -22,8 +22,8 @@ export default {
           title: 'Home',
         },
         {
-          path: '/calendar',
-          title: 'Calendar',
+          path: '/day',
+          title: 'Day',
         },
         {
           path: '/month',

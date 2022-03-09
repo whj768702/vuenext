@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import Home from './pages/Home';
-import Calendar from './pages/calendar';
+import Day from './pages/Day';
 import Month from './pages/Month';
 import MonthRange from '@/pages/MonthRange';
 import { createWebHistory, createRouter } from 'vue-router';
@@ -14,9 +14,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/calendar',
-    name: 'calendar',
-    component: Calendar,
+    path: '/day',
+    name: 'day',
+    component: Day,
   },
   {
     path: '/month',

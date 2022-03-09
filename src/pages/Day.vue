@@ -9,9 +9,9 @@
       <span v-for="i in weekdays" :key="i" class="cell">{{ i }}</span>
     </div>
     <div class="week-day">
-      <span v-for="(day, index) in fortyDays" :key="index" class="cell"
-            :class="{'month-include': isInMonth(day), 'month-exclude': !isInMonth(day)}"
-      >{{ day.date() }}</span>
+      <span v-for="(day, index) in fortyDays" :key="index" class="cell" @click="chooseDay(day)"
+            :class="{ 'month-include': isInMonth(day), 'month-exclude': !isInMonth(day), 'selected':day.isSame(selectedDay) }">
+      {{ day.date() }}</span>
     </div>
   </div>
 </template>
@@ -45,9 +45,16 @@ export default {
       year: dayjs().get('year'),
       month: dayjs().get('month'),
       weekdays: ['日', '一', '二', '三', '四', '五', '六'],
+      selectedDay: null,
     };
   },
   methods: {
+    chooseDay(day) {
+      if (this.isInMonth(day)) {
+        this.selectedDay = day;
+      }
+      console.log('selectedDay: ', this.selectedDay);
+    },
     isInMonth(day) {
       const firstDayOfMonth = dayjs(new Date(this.year, this.month)).startOf('month');
       const lastDayOfMonth = dayjs(new Date(this.year, this.month)).endOf('month');
@@ -58,12 +65,14 @@ export default {
       const calculatedDate = dayjs(currentShowDate).subtract(1, 'month');
       this.year = calculatedDate.get('year');
       this.month = calculatedDate.get('month');
+      this.selectedDay = null;
     },
     nextMonth() {
       const currentShowDate = new Date(this.year, this.month);
       const calculatedDate = dayjs(currentShowDate).add(1, 'month');
       this.year = calculatedDate.get('year');
       this.month = calculatedDate.get('month');
+      this.selectedDay = null;
     },
   },
 };
@@ -82,10 +91,14 @@ export default {
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     .cell {
       font-size: 16px;
       font-weight: 500;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
     }
   }
 
@@ -95,7 +108,8 @@ export default {
     flex-wrap: wrap;
 
     .cell {
-      margin-top: 50px;
+      padding-top: 25px;
+      padding-bottom: 25px;
       width: calc(100% / 7);
       font-size: 14px;
       font-weight: 500;
@@ -107,6 +121,10 @@ export default {
 
     .month-exclude {
       color: #b0b0b0;
+    }
+
+    .selected {
+      background-color: tomato;
     }
   }
 }
