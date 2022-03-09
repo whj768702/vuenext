@@ -10,5 +10,7 @@
   "parserOptions": {
     "parser": "babel-eslint"
   },
-  "rules": {}
+  "rules": {
+    "vue/multi-word-component-names": 0 // disable this rule for now
+  }
 }
