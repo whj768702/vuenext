@@ -10,28 +10,28 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "core-js": "^3.18.3",
-    "dayjs": "^1.10.7",
+    "core-js": "^3.21.1",
+    "dayjs": "^1.10.8",
     "less": "^4.1.2",
-    "less-loader": "^7.3.0",
-    "vue": "^3.2.20",
-    "vue-router": "^4.0.11"
+    "less-loader": "^10.2.0",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@storybook/addon-actions": "^6.3.11",
-    "@storybook/addon-essentials": "^6.3.11",
-    "@storybook/addon-links": "^6.3.11",
-    "@storybook/vue3": "^6.3.11",
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "@vue/compiler-sfc": "^3.2.20",
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/vue3": "^6.4.19",
+    "@vue/cli-plugin-babel": "^5.0.1",
+    "@vue/cli-plugin-eslint": "^5.0.1",
+    "@vue/cli-service": "^5.0.1",
+    "@vue/compiler-sfc": "^3.2.31",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^7.19.1",
-    "vue-loader": "^16.8.1"
+    "eslint-plugin-vue": "^8.5.0",
+    "vue-loader": "^17.0.0"
   },
   "browserslist": [
     "> 1%",
