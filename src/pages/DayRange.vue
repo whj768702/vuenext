@@ -1,16 +1,17 @@
 <template>
   <div class="calendar">
     <div class="header">
-      <button @click="previousMonth">previous</button>
+      <button @click="previousMonth">&lt;</button>
       {{ year }}年{{ showMonth }}月
-      <button @click="nextMonth">next</button>
+      <button @click="nextMonth">&gt;</button>
     </div>
     <div class="week-type">
       <span v-for="i in weekdays" :key="i" class="cell">{{ i }}</span>
     </div>
     <div class="week-day">
       <span v-for="(day, index) in fortyDays" :key="index" class="cell" @click="chooseDay(day)"
-            :class="{ 'month-include': isInMonth(day), 'month-exclude': !isInMonth(day), 'selected':day.isSame(selectedDay) }">
+            :class="{ 'month-include': isInMonth(day), 'month-exclude': !isInMonth(day), 'selected': isSelected(day),
+             'bg-[tomato] bg-opacity-10': isIncluded(day)}">
       {{ day.date() }}</span>
     </div>
   </div>
@@ -23,7 +24,7 @@ import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isBetween);
 
 export default {
-  name: 'Day',
+  name: 'DayRange',
   computed: {
     fortyDays() {
       const firstDayOfMonth = dayjs(new Date(this.year, this.month)).date(1);
@@ -45,13 +46,32 @@ export default {
       year: dayjs().get('year'),
       month: dayjs().get('month'),
       weekdays: ['日', '一', '二', '三', '四', '五', '六'],
-      selectedDay: null,
+      selectedDay: [],
     };
   },
   methods: {
+    isSelected(day) {
+      let result = false;
+      result = this.selectedDay[0]?.isSame(day) || this.selectedDay[1]?.isSame(day);
+      return result ? 'bg-[tomato]' : '';
+    },
+    isIncluded(day) {
+      if (this.selectedDay.length === 2) {
+        let result = day.isBetween(this.selectedDay[0], this.selectedDay[1], 'day');
+        return result;
+      }
+    },
     chooseDay(day) {
       if (this.isInMonth(day)) {
-        this.selectedDay = day;
+        if (!this.selectedDay.length) {
+          this.selectedDay.push(day);
+        } else if (this.selectedDay.length === 1) {
+          if (day.isAfter(this.selectedDay[0])) {
+            this.selectedDay.push(day);
+          } else {
+            this.selectedDay = [this.selectedDay[0], day];
+          }
+        }
       }
       console.log('selectedDay: ', this.selectedDay);
     },
@@ -65,14 +85,14 @@ export default {
       const calculatedDate = dayjs(currentShowDate).subtract(1, 'month');
       this.year = calculatedDate.get('year');
       this.month = calculatedDate.get('month');
-      this.selectedDay = null;
+      this.selectedDay = [];
     },
     nextMonth() {
       const currentShowDate = new Date(this.year, this.month);
       const calculatedDate = dayjs(currentShowDate).add(1, 'month');
       this.year = calculatedDate.get('year');
       this.month = calculatedDate.get('month');
-      this.selectedDay = null;
+      this.selectedDay = [];
     },
   },
 };

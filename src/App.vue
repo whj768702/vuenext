@@ -26,6 +26,10 @@ export default {
           title: 'Day',
         },
         {
+          path: '/day-range',
+          title: 'DayRange',
+        },
+        {
           path: '/month',
           title: 'Month',
         },

@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import Home from './pages/Home';
 import Day from './pages/Day';
+import DayRange from '@/pages/DayRange';
 import Month from './pages/Month';
 import MonthRange from '@/pages/MonthRange';
 import { createWebHistory, createRouter } from 'vue-router';
@@ -17,6 +18,11 @@ const routes = [
     path: '/day',
     name: 'day',
     component: Day,
+  },
+  {
+    path: '/day-range',
+    name: 'dayRange',
+    component: DayRange,
   },
   {
     path: '/month',
