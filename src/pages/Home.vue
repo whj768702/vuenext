@@ -1,9 +1,14 @@
 <template>
   <div>
     <h2>parent component: </h2>
-    <input type="text" v-model="parentMsg">
-    <span>father value: </span>
-    <p>{{ parentMsg }}</p>
+    <div>
+      <span>parent input: </span>
+      <input class="border border-gray-500" type="text" v-model="parentMsg">
+    </div>
+    <div>
+      <span>father value: </span>
+      <span>{{ parentMsg }}</span>
+    </div>
     <h3>child component: </h3>
     <HelloWorld :msg="parentMsg" @update="handleSonChange" />
   </div>
