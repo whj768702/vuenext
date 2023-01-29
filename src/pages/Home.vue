@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border border-gray-500">
     <h2>parent component: </h2>
     <div>
       <span>parent input: </span>
