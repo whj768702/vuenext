@@ -34,6 +34,11 @@ const routes = [
     name: 'monthRange',
     component: MonthRange,
   },
+  {
+    path: '/setup',
+    name: 'setup',
+    component: () => import('./pages/setup'),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),

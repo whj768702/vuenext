@@ -37,6 +37,10 @@ export default {
           path: '/month-range',
           title: 'MonthRange',
         },
+        {
+          path: '/setup',
+          title: 'setup'
+        },
       ],
     };
   },
